@@ -2,19 +2,21 @@ import React, { useState, Component } from 'react';
 import RocketCore from './RocketCore';
 
 export function FunctionalRocket() {
-  //Stop the Class rocket from taking off
+  
   //Stop the Functional rocket from taking off
-  const [initialLaunchTime] = useState(Date.now());
+  //button to prevent it from taking off
+  const [initialLaunchTime] = useState(Date.now() + 10);
 
   return <RocketCore initialLaunchTime={initialLaunchTime} />;
 }
 
 export class ClassRocket extends Component {
+  //Stop the Class rocket from taking off
   constructor() {
     super();
 
     this.state = {
-      initialLaunchTime: Date.now()
+      initialLaunchTime: Date.now() + 10 
     };
   }
 
