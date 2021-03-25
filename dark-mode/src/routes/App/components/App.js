@@ -2,10 +2,26 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import '../styles/_app.scss';
+import {useState} from 'react';
+import {useDarkMode} from './useDarkMode'
 
 
 /*Add dark-mode switching functionality to the *existing* dark-mode button*/
-function App() {
+//--> Do this by:
+//------> 1. I need to apply CSS 'dark-mode' 
+//------> 2. Do this by creating a useDarkMode function which sets up state to set Dark Mode 
+/* Utilise the *existing* dark-mode scss file by adding a `dark-mode` class to the root `html` element*/
+
+function App(props) {
+  
+  
+  //event handler
+  const toggle = e => {
+    e.preventDefault();
+    //set dark mode when it is not in dark mode
+    props.setDarkMode(!props.darkMode);
+     
+  };
   return (
     <div className="app">
       <div className="level">
@@ -13,7 +29,7 @@ function App() {
           <h1 className="title">Dark Mode Challenge</h1>
         </div>
         {/* --The button that should toggle dark mode-- */}
-        <button className="app__dark-mode-btn icon level-right">
+        <button className="app__dark-mode-btn icon level-right" onClick={toggle}>
           <FontAwesomeIcon icon={faMoon} />
         </button>
 
