@@ -13,13 +13,13 @@ import {useDarkMode} from './useDarkMode'
 /* Utilise the *existing* dark-mode scss file by adding a `dark-mode` class to the root `html` element*/
 
 function App(props) {
-  
+  const [darkMode, setDarkMode] = useDarkMode()
   
   //event handler
   const toggle = e => {
     e.preventDefault();
     //set dark mode when it is not in dark mode
-    props.setDarkMode(!props.darkMode);
+    setDarkMode(!darkMode)
      
   };
   return (
